@@ -6,7 +6,7 @@ This repository contains the code for fitting 98 parsimonious MV-HMRMFCs and 960
 
 ### Description ###
 
-Runs the initialization of the EMC algorithms used for fitting the 9604 parsimonious MV-HMRMRCs. Parallel computing is implemented and highly recommended for a faster calculation.
+Runs the initialization of the EMC algorithm used for fitting the 9604 parsimonious MV-HMRMRCs. Parallel computing is implemented and highly recommended for a faster calculation.
 
 ### Usage ###
 
@@ -31,3 +31,28 @@ Eigen.CWM_HMM_init (Y, X, k, mod.row.Y = "all", mod.col.Y = "all", mod.row.X = "
 * nstartR: An integer specifying the number of random starts to be considered. Default value is 50. 
 
 * nThreads: A positive integer indicating the number of cores used for running in parallel.  
+
+## Eigen.CWM_HMM_fit ##
+
+### Description ###
+
+Fits, by using the EMC algorithm, the 9604 parsimonious MV-HMRMRCs. Parallel computing is implemented and highly recommended for a faster calculation.
+
+### Usage ###
+
+Eigen.CWM_HMM_fit (Y, X, init.par = NULL, tol = 0.001, maxit = 500, nThreads = 1)
+
+### Arguments ###
+
+* Y: An array of dimensions P x R x I x T, where P and R are the rows and columns of the responses, respectively, I refers to the statistical units, and T refers to the time points.
+
+* X: An array of dimensions Q x R x I x T, where Q and R are the rows and columns of the covariates, respectively, I refers to the statistical units, and T refers to the time points.
+
+* init.par: The output of the Eigen.CWM_HMM_init() function for initializing the fitting algorithm.
+
+* tol: Threshold for ECM algorithm convergence. Default value is 0.001.
+
+* maxit: Maximum number of iterations for the ECM algorithm. Default value is 500.
+
+* nThreads: A positive integer indicating the number of cores used for running in parallel.
+
