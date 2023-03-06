@@ -1,6 +1,6 @@
-# Parsimonious-MV-HMRMs
-
 This repository contains the code for fitting 98 parsimonious MV-HMRMFCs and 9604 parsimonious MV-HMRMRCs. In the following, you find a description of the functions (and their arguments) contained in the Functions.R file.
+
+# Parsimonious MV-HMRMRCs
 
 ## Eigen.CWM_HMM_init ##
 
@@ -43,7 +43,7 @@ Eigen.CWM_HMM_fit (Y, X, init.par = NULL, tol = 0.001, maxit = 500, nThreads = 1
 * maxit: Maximum number of iterations for the ECM algorithm. Default value is 500.
 * nThreads: A positive integer indicating the number of cores used for running in parallel.
 
-## extract.bestM ##
+## extract.bestM.CWM ##
 
 ### Description ###
 
@@ -51,7 +51,7 @@ This function extracts the top/best fitting models according to the Bayesian inf
 
 ### Usage ###
 
-extract.bestM (results, top = 1)
+extract.bestM.CWM (results, top = 1)
 
 ### Arguments ###
 
@@ -70,7 +70,7 @@ extract.shortEM (Extract.bestM)
 
 ### Arguments ###
 
-* Extract.bestM: The output of the extract.bestM() function.
+* Extract.bestM: The output of the extract.bestM.CWM() function.
 
 ## filt.init ##
 
@@ -91,7 +91,7 @@ filt.init (res.init, Extract.bestM)
 
 ### Description ###
 
-This function generates random observations from a MV-HMRM.
+This function generates random observations from a MV-HMRMRC.
 
 ### Usage ###
 
@@ -111,3 +111,60 @@ r.CWM_HMM (num, t, PI, M, B, U.Y, V.Y, U.X, V.X, IP, seed = NULL)
 * IP: A vector containing the initial probability weights.
 * seed: The seed for random number generation.
 
+# Parsimonious MV-HMRMFCs
+
+## Eigen.FMR_HMM_init ##
+
+### Description ###
+
+Runs the initialization of the ECM algorithm used for fitting the 98 parsimonious MV-HMRMFCs. Parallel computing is implemented and highly recommended for a faster calculation.
+
+### Usage ###
+
+Eigen.FMR_HMM_init (Y, X, k, mod.row.Y = "all", mod.col.Y = "all", nstartR = 50, nThreads = 1)
+
+### Arguments ###
+
+The meaning of the arguments of this function is the same as that of the Eigen.CWM_HMM_init() function. See it for further details.
+
+## Eigen.FMR_HMM_fit ##
+
+### Description ###
+
+Fits, by using the ECM algorithm, the 98 parsimonious MV-HMRMRFs. Parallel computing is implemented and highly recommended for a faster calculation.
+
+### Usage ###
+
+Eigen.FMR_HMM_fit (Y, X, init.par = NULL, tol = 0.001, maxit = 500, nThreads = 1)
+
+### Arguments ###
+
+The meaning of the arguments of this function is the same as that of the Eigen.CWM_HMM_fit() function. See it for further details.
+
+## extract.bestM.FMR ##
+
+### Description ###
+
+This function extracts the top/best fitting models according to the Bayesian information criterion (BIC).
+
+### Usage ###
+
+extract.bestM.CWM (results, top = 1)
+
+### Arguments ###
+
+The meaning of the arguments of this function is the same as that of the extract.bestM.CWM() function. See it for further details.
+
+## r.FMR_HMM ##
+
+### Description ###
+
+This function generates random observations from a MV-HMRMFC.
+
+### Usage ###
+
+r.FMR_HMM (num, t, PI, B, U.Y, V.Y, IP, seed = NULL)
+
+### Arguments ###
+
+The meaning of the arguments of this function is the same as that of the r.CWM_HMM() function. See it for further details.
