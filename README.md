@@ -45,14 +45,21 @@ Eigen.CWM_HMM_fit (Y, X, init.par = NULL, tol = 0.001, maxit = 500, nThreads = 1
 ### Arguments ###
 
 * Y: An array of dimensions P x R x I x T, where P and R are the rows and columns of the responses, respectively, I refers to the statistical units, and T refers to the time points.
-
 * X: An array of dimensions Q x R x I x T, where Q and R are the rows and columns of the covariates, respectively, I refers to the statistical units, and T refers to the time points.
-
 * init.par: The output of the Eigen.CWM_HMM_init() function for initializing the fitting algorithm.
-
 * tol: Threshold for ECM algorithm convergence. Default value is 0.001.
-
 * maxit: Maximum number of iterations for the ECM algorithm. Default value is 500.
-
 * nThreads: A positive integer indicating the number of cores used for running in parallel.
 
+## extract.bestM ##
+
+### Description ###
+
+This function extracts the top/best fitting models according to the Bayesian information criterion (BIC).
+
+### Usage ###
+
+extract.bestM (results, top = 1)
+
+* results: The output of the Eigen.CWM_HMM_fit() function.
+* top: A number indicating how many models to extract from the ranking provided by the BIC. 
