@@ -15,21 +15,13 @@ Eigen.CWM_HMM_init (Y, X, k, mod.row.Y = "all", mod.col.Y = "all", mod.row.X = "
 ### Arguments ###
 
 * Y: An array of dimensions P x R x I x T, where P and R are the rows and columns of the responses, respectively, I refers to the statistical units, and T refers to the time points.
-
 * X: An array of dimensions Q x R x I x T, where Q and R are the rows and columns of the covariates, respectively, I refers to the statistical units, and T refers to the time points. 
-
 * k: A vector containing the numbers of groups to be tried. It must start from 1. 
-
 * mod.row.Y: A character vector indicating the parsimonious structure for the row covariance matrix of the responses. Possible values are: "EII", "VII", "EEI", "VEI", "EVI", "VVI", "EEE", "VEE", "EVE", "EEV", "VVE", "VEV", "EVV", "VVV" or "all". When "all" is used, all of the 14 parsimonious structures are considered. 
-
 * mod.col.Y: A character vector indicating the parsimonious structure for the column covariance matrix of the responses. Possible values are: "II", "EI", "VI", "EE", "VE", "EV", "VV" or "all". When "all" is used, all of the 7 parsimonious structures are considered. 
-
 * mod.row.X: A character vector indicating the parsimonious structure for the row covariance matrix of the covariates. Possible values are: "EII", "VII", "EEI", "VEI", "EVI", "VVI", "EEE", "VEE", "EVE", "EEV", "VVE", "VEV", "EVV", "VVV" or "all". When "all" is used, all of the 14 parsimonious structures are considered. 
-
 * mod.col.X: A character vector indicating the parsimonious structure for the column covariance matrix of the covariates. Possible values are: "II", "EI", "VI", "EE", "VE", "EV", "VV" or "all". When "all" is used, all of the 7 parsimonious structures are considered. 
-
 * nstartR: An integer specifying the number of random starts to be considered. Default value is 50. 
-
 * nThreads: A positive integer indicating the number of cores used for running in parallel.  
 
 ## Eigen.CWM_HMM_fit ##
@@ -61,5 +53,37 @@ This function extracts the top/best fitting models according to the Bayesian inf
 
 extract.bestM (results, top = 1)
 
+### Arguments ###
+
 * results: The output of the Eigen.CWM_HMM_fit() function.
 * top: A number indicating how many models to extract from the ranking provided by the BIC. 
+
+## extract.shortEM ##
+
+### Description ###
+
+This function extracts the names and k of the best fitting models provided by the extract.bestM function.
+
+### Usage ###
+
+extract.shortEM (Extract.bestM)
+
+### Arguments ###
+
+* Extract.bestM: The output of the function extract.bestM().
+
+## filt.init ##
+
+### Description ###
+
+This function extracts only the initializations to be used in the second step of our fitting strategy, according to the results provided by the extract.shortEM() function.
+
+### Usage ###
+
+filt.init (res.init, Extract.bestM)
+
+### Arguments ###
+
+* res.init: The output of the Eigen.CWM_HMM_init() function.
+* Extract.bestM: The output of the extract.shortEM() function.
+
