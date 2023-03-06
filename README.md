@@ -87,3 +87,27 @@ filt.init (res.init, Extract.bestM)
 * res.init: The output of the Eigen.CWM_HMM_init() function.
 * Extract.bestM: The output of the extract.shortEM() function.
 
+## r.CWM_HMM ##
+
+### Description ###
+
+This function generates random observations from a MV-HMRM.
+
+### Usage ###
+
+r.CWM_HMM (num, t, PI, M, B, U.Y, V.Y, U.X, V.X, IP, seed = NULL)
+
+### Arguments ###
+
+* num: The number of statistical units.
+* t: The number of time points.
+* PI: The transition probability matrix of dimension k x k, where k is the number of hidden states.
+* M: An array containing the mean matrices for the covariates having dimensions Q x R x k, where Q and R are the rows and columns of the covariates, respectively. 
+* B: An array containing the regression coefficients having dimensions P x Q+1 x k, where P and Q are the rows of the responses and the covariates, respectively. The first column must contains the interecpts.
+* U.Y: An array containing the row covariance matrices of the respones having dimensions P x P x k.
+* V.Y: An array containing the column covariance matrices of the respones having dimensions R x R x k.
+* U.X: An array containing the row covariance matrices of the covariates having dimensions Q x Q x k.
+* V.X: An array containing the column covariance matrices of the covariates having dimensions R x R x k. 
+* IP: A vector containing the initial probability weights.
+* seed: The seed for random number generation.
+
