@@ -1,4 +1,4 @@
-This repository contains the code for fitting 98 parsimonious MV-HMRMFCs and 9604 parsimonious MV-HMRMRCs. In the following, you find a description of the functions (and their arguments) contained in the Functions.R file.
+This repository contains the code for fitting the 9604 parsimonious MV-HMRMRCs and 98 parsimonious MV-HMRMFCs. In the following, you find a description of the functions (and their arguments) contained in the MV-HMRMRCs.R and MV-HMRMFCs files, respectively.
 
 # Parsimonious MV-HMRMRCs
 
