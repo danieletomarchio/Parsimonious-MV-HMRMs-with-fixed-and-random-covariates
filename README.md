@@ -6,7 +6,7 @@ This repository contains the code for fitting 98 parsimonious MV-HMRMFCs and 960
 
 ### Description ###
 
-Runs the initialization of the EMC algorithm used for fitting the 9604 parsimonious MV-HMRMRCs. Parallel computing is implemented and highly recommended for a faster calculation.
+Runs the initialization of the ECM algorithm used for fitting the 9604 parsimonious MV-HMRMRCs. Parallel computing is implemented and highly recommended for a faster calculation.
 
 ### Usage ###
 
