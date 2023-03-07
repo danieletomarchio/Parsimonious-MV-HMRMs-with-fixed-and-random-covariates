@@ -175,9 +175,9 @@ The two example files allow to simulate and fit the two families of MV-HMRMs.
 
 # Real dataset
 
-The real dataset has been extracted from http://dati.istat.it/#
+The real dataset has been extracted from http://dati.istat.it/#.
 It contains the unemployment (X) and the labor force participation (Y) for I = 106 Italian provinces over T = 4 years spanning from 2018 to 2021.
-For each province, the unemployment and the labor force participation are recorded in a two-factor percentage format.
+For each province, the unemployment and the labor force participation are recorded in a two-factor format.
 The first factor, gender, has two levels: males and females.
 The second factor, age, has four levels driven by the age class: 15-24, 25-34, 35-49, and 50-74.
 Therefore, both variables are presented in a four-way array format having dimensions 2 x 4 x 106 x 4.
