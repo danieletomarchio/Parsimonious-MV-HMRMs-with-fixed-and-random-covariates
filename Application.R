@@ -2,6 +2,9 @@
 
 ## Fitting 
 
+# Note that we run the analysis by parallelizing computation on 14 cores, i.e. nThreads = 14 in the code below.
+# If this number of cores is not available, nThreads should be lowered.
+
 res.init <- Eigen.CWM_HMM_init(Y=Y,X=X,k=1:7, mod.row.Y = "all", mod.col.Y = "all", mod.row.X = "all", mod.col.X = "all", nThreads = 14)
 res.fit <- Eigen.CWM_HMM_fit(Y=Y,X=X,init.par = res.init, nThreads = 14, maxit=5)
 
